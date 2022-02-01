@@ -62,22 +62,27 @@ with open('config_templates') as file:
 			for command in commands:
 				commands_list.append(command)
 
-config_writer = open("config_writer", "w")
-config_writer.write("#!/usr/bin/expect -f"+'\n')
-config_writer.write("set timeout -1"+'\n')
-config_writer.write("log_file tests.log"+'\n')
-config_writer.write("spawn vtysh"+'\n')
-config_writer.write(r'expect "*#"'+'\n')
-config_writer.write(r'send -- "configure terminal\r"'+'\n')
-config_writer.write(r'expect "*#"'+'\n')
-
-count = 0
+line_count = 0
+file_index = 0
 for command in commands_list:		
 	command_types = get_ip_values(command)
 	if(len(command_types) == 0):
 		command_types = [command]
-	for i in range(0, len(command_types)):
-		for j in range(0, len(command_types)):
+	
+	for i in range(0, len(command_types) - 1):
+		
+		if line_count == 0:
+			config_writer = open("config_writer_"+str(file_index), "w")
+			config_writer.write("#!/usr/bin/expect -f"+'\n')
+			config_writer.write("set timeout 1"+'\n')
+			config_writer.write("log_file tests.log"+'\n')
+			config_writer.write("spawn vtysh"+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			config_writer.write(r'send -- "configure terminal\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			file_index = file_index + 1
+		
+		for j in range(i+1, len(command_types)):
 			config_writer.write(r'send -- "'+command_types[i].strip()+r'\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n') 
 			config_writer.write(r'send -- "'+command_types[j].strip()+r'\r"'+'\n')
@@ -85,23 +90,55 @@ for command in commands_list:
 			config_writer.write(r'send -- "exit\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "show run\r"'+'\n')
-			config_writer.write(r'expect "*#"'+'\n')
+			#config_writer.write(r'expect "*#"'+'\n')
+			config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'".*'+command_types[i].strip()+r'.*'+command_types[j].strip()+r'.*"'+'\n'+'}'+'\n')
+			'''
+			expect { 
+			timeout { exit 1 }
+			".*command1.*command2.*"
+			}
+			'''
 			#TODO: Add expect to test output
 			config_writer.write(r'send -- "configure terminal\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "no access-list WORD\r"'+'\n')
 			config_writer.write(r'send -- "'+command_types[j].strip()+r'\r"'+'\n')
-			config_writer.write(r'expect "*#"'+'\n') 
+			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "'+command_types[i].strip()+r'\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "exit\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "show run\r"'+'\n')
+			#config_writer.write(r'expect "*#"'+'\n')
+			'''
+			expect { 
+			timeout { exit 1 }
+			".*command1.*command2.*"
+			}
+			'''
+			config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'".*'+command_types[j].strip()+r'.*'+command_types[i].strip()+r'.*"'+'\n'+'}'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			#TODO: Add expect to test output
 			config_writer.write(r'send -- "configure terminal\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "no access-list WORD\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			
+			line_count = line_count + 1
+		
+		if line_count > 500:
+			line_count = 0
+			config_writer.write(r'send -- "exit\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			config_writer.write(r'send -- "exit\r"'+'\n')
+			config_writer.write(r'expect eof')
+			config_writer.close()
+		
+ 
+config_writer.write(r'send -- "exit\r"'+'\n')
+config_writer.write(r'expect "*#"'+'\n')
+config_writer.write(r'send -- "exit\r"'+'\n')
+config_writer.write(r'expect eof')
 			  
 		
 		
