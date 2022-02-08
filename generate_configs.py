@@ -1,4 +1,5 @@
 from make_command import make_command
+import re
 
 ip_values = ["0.0.0.0", "1.1.1.1", "1.1.1.0", "1.1.0.0"]
 ip_mask_values = ["0", "23", "24", "32"]
@@ -64,7 +65,8 @@ with open('config_templates') as file:
 
 line_count = 0
 file_index = 0
-for command in commands_list:		
+for command in commands_list:
+	command = re.sub(" +", " ", command)	
 	command_types = get_ip_values(command)
 	if(len(command_types) == 0):
 		command_types = [command]
@@ -83,6 +85,11 @@ for command in commands_list:
 			file_index = file_index + 1
 		
 		for j in range(i+1, len(command_types)):
+			
+			has_sequence = 0
+			if "seq" in command_types[i] and "seq" in command_types[j]:
+				has_sequence = 1
+			
 			config_writer.write(r'send -- "'+command_types[i].strip()+r'\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n') 
 			config_writer.write(r'send -- "'+command_types[j].strip()+r'\r"'+'\n')
@@ -91,17 +98,20 @@ for command in commands_list:
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "show run\r"'+'\n')
 			#config_writer.write(r'expect "*#"'+'\n')
-			config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'".*'+command_types[i].strip()+r'.*'+command_types[j].strip()+r'.*"'+'\n'+'}'+'\n')
+			if not has_sequence:
+				config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'"*'+command_types[i].strip().replace(' ', '*')+r'*'+command_types[j].strip().replace(' ', '*')+r'*"'+'\n'+'}'+'\n')
+			else:
+				config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'"*'+command_types[j].strip().replace(' ', '*')+r'*"'+'\n'+'}'+'\n')
 			'''
 			expect { 
 			timeout { exit 1 }
 			".*command1.*command2.*"
 			}
 			'''
-			#TODO: Add expect to test output
 			config_writer.write(r'send -- "configure terminal\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "no access-list WORD\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "'+command_types[j].strip()+r'\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "'+command_types[i].strip()+r'\r"'+'\n')
@@ -116,9 +126,12 @@ for command in commands_list:
 			".*command1.*command2.*"
 			}
 			'''
-			config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'".*'+command_types[j].strip()+r'.*'+command_types[i].strip()+r'.*"'+'\n'+'}'+'\n')
+			if not has_sequence:
+				config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'"*'+command_types[j].strip().replace(' ', '*')+r'*'+command_types[i].strip().replace(' ', '*')+r'*"'+'\n'+'}'+'\n')
+			else:
+				config_writer.write(r'expect {'+'\n'+r'timeout { send_log "POSSIBLE ERROR DETECTED" }'+'\n'+r'"*'+command_types[i].strip().replace(' ', '*')+r'*"'+'\n'+'}'+'\n')
+
 			config_writer.write(r'expect "*#"'+'\n')
-			#TODO: Add expect to test output
 			config_writer.write(r'send -- "configure terminal\r"'+'\n')
 			config_writer.write(r'expect "*#"'+'\n')
 			config_writer.write(r'send -- "no access-list WORD\r"'+'\n')
