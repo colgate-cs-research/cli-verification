@@ -1,0 +1,3 @@
+0: seq (1-4294967295), 
+1: deny, permit
+2: A.B.C.D/M [exact-match], any
