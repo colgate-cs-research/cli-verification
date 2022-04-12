@@ -144,8 +144,11 @@ def bracket_cr(string):
 	outputs.append(str(random.randint(start, end)))
 	return outputs
 
-#test_command = "access-list WORD$name [seq (1-4294967295)$seq] <deny|permit>$action <A.B.C.D/M$prefix [exact-match$exact]|any>"
+test_command = "access-list WORD$name [seq (1-4294967295)$seq] <deny|permit>$action <A.B.C.D/M$prefix [exact-match$exact]|any>"
+test_command = "ipv6 route X:X::X:X/M [from X:X::X:X/M] X:X::X:X <INTERFACE|Null0> [{tag (1-4294967295)|(1-255)|vrf NAME|label WORD|table (1-4294967295)|nexthop-vrf NAME|onlink|color (1-4294967295)}]"
 #test_command = sys.argv[1]
 
-#commands = make_command(test_command)
-#print(commands)
+commands = remove_comments(test_command)
+print(commands)
+commands = extract_brackets(commands)
+print(commands)

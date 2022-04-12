@@ -1,4 +1,3 @@
 access-list WORD [seq (1-4294967295)] <deny|permit> <A.B.C.D/M [exact-match]|any>
 access-list WORD [seq (1-4294967295)] <deny|permit> <[host] A.B.C.D|A.B.C.D A.B.C.D>
 access-list WORD [seq (1-4294967295)] <deny|permit> ip <A.B.C.D A.B.C.D|host A.B.C.D|any> <A.B.C.D A.B.C.D|host A.B.C.D|any>
-    
