@@ -1,0 +1,339 @@
+end
+exit
+quit
+link-params
+list [permutations]
+find REGEX...
+output file FILE
+no output file [FILE]
+<ip|ipv6> nhrp <shortcut|redirect>
+<ip|ipv6> nhrp holdtime (1-65000)
+<ip|ipv6> nhrp map <A.B.C.D|X:X::X:X> <A.B.C.D|local>
+<ip|ipv6> nhrp map multicast <A.B.C.D|X:X::X:X|dynamic>
+<ip|ipv6> nhrp network-id (1-4294967295)
+<ip|ipv6> nhrp nhs <A.B.C.D|X:X::X:X|dynamic> nbma <A.B.C.D|FQDN>
+<ip|ipv6> nhrp registration no-unique
+[no] evpn mh es-df-pref [(1-65535)]
+[no] evpn mh es-id [(1-16777215)|NAME]
+[no] evpn mh es-sys-mac [X:X:X:X:X:X]
+[no] ip pim active-active
+[no] evpn mh uplink
+[no] ip rip split-horizon [poisoned-reverse]
+[no] ip rip v2-broadcast
+[no] ipv6 pim active-active
+[no] ipv6 ripng split-horizon [poisoned-reverse]
+[no] isis bfd profile BFDPROF
+[no] isis bfd
+[no] isis fast-reroute lfa [level-1|level-2] exclude interface IFNAME
+[no] isis fast-reroute lfa [level-1|level-2]
+[no] isis fast-reroute remote-lfa maximum-metric (1-16777215) [level-1|level-2]
+[no] isis fast-reroute remote-lfa tunnel mpls-ldp [level-1|level-2]
+[no] isis fast-reroute ti-lfa [level-1|level-2] [node-protection [link-fallback]]
+[no] isis hello padding
+[no] isis mpls ldp-sync
+[no] isis network point-to-point
+[no] isis passive
+[no] isis three-way-handshake
+[no] isis topology<standard|ipv4-unicast|ipv4-mgmt|ipv6-unicast|ipv4-multicast|ipv6-multicast|ipv6-mgmt|ipv6-dstsrc>
+[no] pbr-policy PBRMAP
+[no] vrrp (1-255) [version (2-3)]
+[no] vrrp (1-255) ip A.B.C.D
+[no] vrrp (1-255) ipv6 X:X::X:X
+[no] vrrp (1-255) preempt
+[no] vrrp (1-255) shutdown
+babel channel (1-254)
+babel channel interfering
+babel channel noninterfering
+babel enable-timestamps
+babel hello-interval (20-655340)
+babel max-rtt-penalty (0-65535)
+babel rtt-decay (1-256)
+babel rtt-max (1-65535)
+babel rtt-min (1-65535)
+babel rxcost (1-65534)
+babel split-horizon
+babel update-interval (20-655340)
+babel wired
+babel wireless
+bandwidth (1-100000)
+debug ipv6 mld {robustness (0-7)|query-max-response-time (1-8387584)}
+delay (1-16777215)
+description LINE...
+eigrp bandwidth (1-10000000)
+ip address A.B.C.D peer A.B.C.D/M
+ip address A.B.C.D/M label LINE
+ip address A.B.C.D/M
+ip authentication key-chain eigrp (1-65535) WORD
+ip authentication mode eigrp (1-65535) <md5|hmac-sha-256>
+ip hello-interval eigrp (1-65535)
+ip hold-time eigrp (1-65535)
+ip igmp join A.B.C.D [A.B.C.D]
+ip igmp last-member-query-count (1-255)
+ip igmp last-member-query-interval (1-65535)
+ip igmp query-interval (1-65535)
+ip igmp query-max-response-time (1-65535)
+ip igmp version (2-3)
+ip igmp
+ip irdp address A.B.C.D preference (0-2147483647)
+ip irdp broadcast
+ip irdp debug disable
+ip irdp debug messages
+ip irdp debug misc
+ip irdp debug packet
+ip irdp holdtime (0-9000)
+ip irdp maxadvertinterval (4-1800)
+ip irdp minadvertinterval (3-1800)
+ip irdp multicast
+ip irdp preference (0-2147483647)
+ip irdp shutdown
+ip mroute INTERFACE A.B.C.D [A.B.C.D]
+ip multicast boundary oil WORD
+ip nhrp mtu <(576-1500)|opennhrp>
+ip ospf [(1-65535)] area <A.B.C.D|(0-4294967295)> [A.B.C.D]
+ip ospf authentication <null|message-digest> [A.B.C.D]
+ip ospf authentication [A.B.C.D]
+ip ospf authentication-key AUTH_KEY [A.B.C.D]
+ip ospf bfd profile BFDPROF
+ip ospf bfd
+ip ospf cost (1-65535) [A.B.C.D]
+ip ospf dead-interval (1-65535) [A.B.C.D]
+ip ospf dead-interval minimal hello-multiplier (1-10) [A.B.C.D]
+ip ospf hello-interval (1-65535) [A.B.C.D]
+ip ospf message-digest-key (1-255) md5 KEY [A.B.C.D]
+ip ospf mpls ldp-sync holddown (0-10000)
+ip ospf mpls ldp-sync
+ip ospf mtu-ignore [A.B.C.D]
+ip ospf network <broadcast|non-broadcast|point-to-multipoint|point-to-point [dmvpn]>
+ip ospf passive [A.B.C.D]
+ip ospf priority (0-255) [A.B.C.D]
+ip ospf retransmit-interval (1-65535) [A.B.C.D]
+ip ospf transmit-delay (1-65535) [A.B.C.D]
+ip pim [passive]
+ip pim bfd [profile BFDPROF]
+ip pim bsm
+ip pim drpriority (1-4294967295)
+ip pim hello (1-65535) [(1-65535)]
+ip pim unicast-bsm
+ip pim use-source A.B.C.D
+ip rip authentication key-chain LINE
+ip rip authentication mode <md5 [auth-length <rfc|old-ripd>]|text>
+ip rip authentication string LINE
+ip rip receive version <{1|2}|none>
+ip rip send version <{1|2}|none>
+ip router openfabric WORD
+ip router isis WORD
+ip summary-address eigrp (1-65535) A.B.C.D/M
+ipv6 address X:X::X:X/M
+ipv6 mld join X:X::X:X [X:X::X:X]
+ipv6 mld last-member-query-count (1-255)
+ipv6 mld last-member-query-interval (1-65535)
+ipv6 mld query-interval (1-65535)
+ipv6 mld query-max-response-time (1-65535)
+ipv6 mld version (1-2)
+ipv6 mld
+ipv6 mroute INTERFACE X:X::X:X [X:X::X:X]
+ipv6 multicast boundary oil WORD
+ipv6 nd adv-interval-option
+ipv6 nd dnssl SUFFIX [<(0-4294967295)|infinite>]
+ipv6 nd home-agent-config-flag
+ipv6 nd home-agent-lifetime (0-65520)
+ipv6 nd home-agent-preference (0-65535)
+ipv6 nd managed-config-flag
+ipv6 nd mtu (1-65535)
+ipv6 nd other-config-flag
+ipv6 nd prefix X:X::X:X/M [<(0-4294967295)|infinite> <(0-4294967295)|infinite>] [<router-address|off-link [no-autoconfig]|no-autoconfig [off-link]>]
+ipv6 nd ra-fast-retrans
+ipv6 nd ra-hop-limit (0-255)
+ipv6 nd ra-interval (1-1800)
+ipv6 nd ra-interval msec (70-1800000)
+ipv6 nd ra-lifetime (0-9000)
+ipv6 nd ra-retrans-interval (0-4294967295)
+ipv6 nd rdnss X:X::X:X [<(0-4294967295)|infinite>]
+ipv6 nd reachable-time (1-3600000)
+ipv6 nd router-preference <high|medium|low>
+ipv6 nd suppress-ra
+ipv6 ospf6 advertise prefix-list WORD
+ipv6 ospf6 area <A.B.C.D|(0-4294967295)>
+ipv6 ospf6 authentication key-id (1-65535) hash-algo <md5|hmac-sha-1|hmac-sha-256|hmac-sha-384|hmac-sha-512> key WORD
+ipv6 ospf6 authentication keychain KEYCHAIN_NAME
+ipv6 ospf6 bfd [profile BFDPROF]
+ipv6 ospf6 cost (1-65535)
+ipv6 ospf6 dead-interval (1-65535)
+ipv6 ospf6 hello-interval (1-65535)
+ipv6 ospf6 ifmtu (1-65535)
+ipv6 ospf6 instance-id (0-255)
+ipv6 ospf6 mtu-ignore
+ipv6 ospf6 network <broadcast|point-to-point>
+ipv6 ospf6 passive
+ipv6 ospf6 priority (0-255)
+ipv6 ospf6 retransmit-interval (1-65535)
+ipv6 ospf6 transmit-delay (1-3600)
+ipv6 pim [passive]
+ipv6 pim drpriority (1-4294967295)
+ipv6 pim hello (1-65535) [(1-65535)]
+ipv6 router openfabric WORD
+ipv6 router isis WORD
+isis circuit-type <level-1|level-1-2|level-2-only>
+isis csnp-interval (1-600) [level-1|level-2]
+isis hello-interval [level-1|level-2] (1-600)
+isis hello-multiplier [level-1|level-2] (2-100)
+isis metric [level-1|level-2] (0-16777215)
+isis mpls ldp-sync holddown (0-10000)
+isis password <md5|clear> WORD
+isis priority (0-127) [level-1|level-2]
+isis psnp-interval (1-120) [level-1|level-2]
+link-detect
+multicast
+no <ip|ipv6> nhrp <shortcut|redirect>
+no <ip|ipv6> nhrp holdtime [(1-65000)]
+no <ip|ipv6> nhrp map <A.B.C.D|X:X::X:X> [<A.B.C.D|local>]
+no <ip|ipv6> nhrp map multicast <A.B.C.D|X:X::X:X|dynamic>
+no <ip|ipv6> nhrp network-id [(1-4294967295)]
+no <ip|ipv6> nhrp nhs <A.B.C.D|X:X::X:X|dynamic> nbma <A.B.C.D|FQDN>
+no <ip|ipv6> nhrp registration no-unique
+no openfabric bfd
+no openfabric csnp-interval [(1-600)]
+no openfabric hello-interval [(1-600)]
+no openfabric hello-multiplier [(2-100)]
+no openfabric metric [(0-16777215)]
+no openfabric passive
+no openfabric password [<md5|clear> WORD]
+no openfabric psnp-interval [(1-120)]
+no openfabric topology <standard|ipv4-mgmt|ipv6-unicast|ipv4-multicast|ipv6-multicast|ipv6-mgmt|ipv6-dstsrc>
+no <ip|ipv6> router openfabric WORD
+no <ip|ipv6> router isis [WORD]
+no babel enable-timestamps
+no babel split-horizon
+no bandwidth [(1-100000)]
+no delay [(1-16777215)]
+no description
+no eigrp bandwidth [(1-10000000)]
+no ip address A.B.C.D peer A.B.C.D/M
+no ip address A.B.C.D/M label LINE
+no ip address A.B.C.D/M
+no ip authentication key-chain eigrp (1-65535) [WORD]
+no ip authentication mode eigrp (1-65535) [<md5|hmac-sha-256>]
+no ip hello-interval eigrp [(1-65535)]
+no ip hold-time eigrp [(1-65535)]
+no ip igmp join A.B.C.D [A.B.C.D]
+no ip igmp last-member-query-count [(1-255)]
+no ip igmp last-member-query-interval [(1-65535)]
+no ip igmp query-interval [(1-65535)]
+no ip igmp query-max-response-time [(1-65535)]
+no ip igmp version (2-3)
+no ip igmp
+no ip irdp address A.B.C.D preference (0-2147483647)
+no ip irdp shutdown
+no ip irdp
+no ip mroute INTERFACE A.B.C.D [A.B.C.D]
+no ip multicast boundary oil [WORD]
+no ip nhrp mtu [(576-1500)|opennhrp]
+no ip ospf [(1-65535)] area [<A.B.C.D|(0-4294967295)> [A.B.C.D]]
+no ip ospf authentication <null|message-digest> [A.B.C.D]
+no ip ospf authentication [A.B.C.D]
+no ip ospf authentication-key [AUTH_KEY [A.B.C.D]]
+no ip ospf bfd profile [BFDPROF]
+no ip ospf bfd
+no ip ospf cost [(1-65535)] [A.B.C.D]
+no ip ospf dead-interval [<(1-65535)|minimal hello-multiplier (1-10)> [A.B.C.D]]
+no ip ospf hello-interval [(1-65535) [A.B.C.D]]
+no ip ospf message-digest-key (1-255) [md5 KEY] [A.B.C.D]
+no ip ospf mpls ldp-sync holddown [<(1-10000)>]
+no ip ospf mpls ldp-sync
+no ip ospf mtu-ignore [A.B.C.D]
+no ip ospf network [<broadcast|non-broadcast|point-to-multipoint|point-to-point>]
+no ip ospf passive [A.B.C.D]
+no ip ospf priority [(0-255) [A.B.C.D]]
+no ip ospf retransmit-interval [(1-65535)] [A.B.C.D]
+no ip ospf transmit-delay [(1-65535)] [A.B.C.D]
+no ip pim [passive]
+no ip pim bfd profile [BFDPROF]
+no ip pim bfd
+no ip pim bsm
+no ip pim drpriority [(1-4294967295)]
+no ip pim hello [(1-65535) [(1-65535)]]
+no ip pim unicast-bsm
+no ip pim use-source [A.B.C.D]
+no ip rip authentication key-chain [LINE]
+no ip rip authentication mode [<md5 [auth-length <rfc|old-ripd>]|text>]
+no ip rip authentication string [LINE]
+no ip rip receive version [<{1|2}|none>]
+no ip rip send version [<{1|2}|none>]
+no ip summary-address eigrp (1-65535) A.B.C.D/M
+no ipv6 address X:X::X:X/M
+no ipv6 mld join X:X::X:X [X:X::X:X]
+no ipv6 mld last-member-query-count [(1-255)]
+no ipv6 mld last-member-query-interval [(1-65535)]
+no ipv6 mld query-interval [(1-65535)]
+no ipv6 mld query-max-response-time [(1-65535)]
+no ipv6 mld version [(1-2)]
+no ipv6 mld
+no ipv6 mroute INTERFACE X:X::X:X [X:X::X:X]
+no ipv6 multicast boundary oil [WORD]
+no ipv6 nd adv-interval-option
+no ipv6 nd dnssl SUFFIX [<(0-4294967295)|infinite>]
+no ipv6 nd home-agent-config-flag
+no ipv6 nd home-agent-lifetime [(0-65520)]
+no ipv6 nd home-agent-preference [(0-65535)]
+no ipv6 nd managed-config-flag
+no ipv6 nd mtu [(1-65535)]
+no ipv6 nd other-config-flag
+no ipv6 nd prefix X:X::X:X/M [<(0-4294967295)|infinite> <(0-4294967295)|infinite>] [<router-address|off-link [no-autoconfig]|no-autoconfig [off-link]>]
+no ipv6 nd ra-fast-retrans
+no ipv6 nd ra-hop-limit [(0-255)]
+no ipv6 nd ra-interval [<(1-1800)|msec (1-1800000)>]
+no ipv6 nd ra-lifetime [(0-9000)]
+no ipv6 nd ra-retrans-interval [(0-4294967295)]
+no ipv6 nd rdnss X:X::X:X [<(0-4294967295)|infinite>]
+no ipv6 nd reachable-time [(1-3600000)]
+no ipv6 nd router-preference [<high|medium|low>]
+no ipv6 nd suppress-ra
+no ipv6 ospf6 advertise prefix-list [WORD]
+no ipv6 ospf6 area [<A.B.C.D|(0-4294967295)>]
+no ipv6 ospf6 authentication key-id [(1-65535) hash-algo <md5|hmac-sha-1|hmac-sha-256|hmac-sha-384|hmac-sha-512> key WORD]
+no ipv6 ospf6 authentication keychain [KEYCHAIN_NAME]
+no ipv6 ospf6 bfd profile [BFDPROF]
+no ipv6 ospf6 bfd
+no ipv6 ospf6 cost [(1-65535)]
+no ipv6 ospf6 dead-interval [(1-65535)]
+no ipv6 ospf6 hello-interval [(1-65535)]
+no ipv6 ospf6 ifmtu [(1-65535)]
+no ipv6 ospf6 instance-id [(0-255)]
+no ipv6 ospf6 mtu-ignore
+no ipv6 ospf6 network [<broadcast|point-to-point>]
+no ipv6 ospf6 passive
+no ipv6 ospf6 priority [(0-255)]
+no ipv6 ospf6 retransmit-interval [(1-65535)]
+no ipv6 ospf6 transmit-delay [(1-3600)]
+no ipv6 pim [passive]
+no ipv6 pim hello [(1-65535) [(1-65535)]]
+no isis circuit-type [level-1|level-1-2|level-2-only]
+no isis csnp-interval [(1-600)] [level-1|level-2]
+no isis hello-interval [level-1|level-2] [(1-600)]
+no isis hello-multiplier [level-1|level-2] [(2-100)]
+no isis metric [level-1|level-2] [(0-16777215)]
+no isis mpls ldp-sync holddown [<(1-10000)>]
+no isis password [<md5|clear> WORD]
+no isis priority [(0-127)] [level-1|level-2]
+no isis psnp-interval [(1-120)] [level-1|level-2]
+no link-detect
+no multicast
+no shutdown
+no tunnel protection
+no tunnel source
+no vrrp (1-255) advertisement-interval [(10-40950)]
+no vrrp (1-255) priority [(1-254)]
+openfabric bfd
+openfabric csnp-interval (1-600)
+openfabric hello-interval (1-600)
+openfabric hello-multiplier (2-100)
+openfabric metric (0-16777215)
+openfabric passive
+openfabric password <md5|clear> WORD
+openfabric psnp-interval (1-120)
+openfabric topology <standard|ipv4-mgmt|ipv6-unicast|ipv4-multicast|ipv6-multicast|ipv6-mgmt|ipv6-dstsrc>
+shutdown
+tunnel protection vici profile PROFILE [fallback-profile FALLBACK]
+tunnel source INTERFACE
+vrrp (1-255) advertisement-interval (10-40950)
+vrrp (1-255) priority (1-254)
