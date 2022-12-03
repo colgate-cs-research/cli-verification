@@ -1,5 +1,7 @@
 from parameter import Parameter
 import os
+import re
+
 class Command: #the whole command
 	
 	def __init__(self, command):
@@ -17,6 +19,10 @@ class Command: #the whole command
 		self.test_cases = self.make_command()
 
 	def make_command(self):
+
+		if not self.test_params:
+			return [self.command]
+
 		#returns all possible combinations of the command
 		#run through all test_cases and for each sub in the test cases of the sub command
 		
@@ -31,9 +37,17 @@ class Command: #the whole command
 		return complete_cases
 	
 	def combi_test(self):
+
+		if not self.params:
+			return []
+
 		#combinatorially test with params = params, and values = params.params
 		#write pict file
 		param_set = []
+		
+		#print(self.command)
+		#for p in self.params:
+		#	print(p)
 		
 		os.chdir("pict")
 		pict = open("pict_temp", "w")
@@ -68,6 +82,7 @@ class Command: #the whole command
 			
 	def set_params(self):
 		substrings = self.extract_brackets()
+		#print(substrings)
 		params_list = list()
 		for string in substrings:
 			params_list.append(Parameter(string)) #for each parameter object there will be a list of values, which is what will be used for the command template
@@ -88,7 +103,7 @@ class Command: #the whole command
 				i = i+1
 		return command
 	
-	#extracts top level brackets and sets parameters
+	#extracts top level brackets (and IPs not in brackets) and sets parameters
 	def extract_brackets(self):
 		open_brackets = ['<', '[', '(', '{']
 		close_brackets = ['>', ']', ')', '}']
@@ -112,11 +127,36 @@ class Command: #the whole command
 				bracket_count = bracket_count - 1
 				if (char == close_brackets[bracket_index]):
 					if(nested_count == 1 and bracket_count == 0):
-						nested_count = nested_count - 1;
+						nested_count = nested_count - 1
 						end_index = i
 						substrings.append(string[start_index:end_index+1])
-		return substrings
+
+		ipv4 = "A.B.C.D"
+		ipv6 = "X:X::X:X"
+
+		#Would indexing be more helping in categorizing parameters
+		#todo to complete ipv6 specs
+		ipv4_count = re.findall(r'A.B.C.D[/M]*', string)
+		ipv6_count = re.findall(r'X:X::X:X', string)
+
+		substring_ipv4_count = []
+		substring_ipv6_count = []
+		for substring in substrings:
+			substring_ipv4_count.extend(re.findall(r'A.B.C.D[/M]*', substring))
+			substring_ipv6_count.extend(re.findall(r'X:X::X:X', substring))
 		
+		for ipv4 in substring_ipv4_count:
+			ipv4_count.remove(ipv4)
+		
+		for ipv6 in substring_ipv6_count:
+			ipv6_count.remove(ipv6)
+
+		substrings.extend(ipv4_count)
+		substrings.extend(ipv6_count)
+
+		print(substrings)
+
+		return substrings
 	
 
 		

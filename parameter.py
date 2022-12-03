@@ -20,12 +20,12 @@ class Parameter: #anything with atleast one set of brackets
 					subparam_options = Parameter(string).options
 					options_list.extend(subparam_options)
 				else:
-					if "A.B.C.D" in string:
+					if "A.B.C.D" in string or "X:X::X:X" in string:
 						string_options = IPvalue(string).options
 						options_list.extend(string_options)
 					else:
 						options_list.append(string)
-		else:
+		elif self.extract_brackets():
 			substrings = self.extract_brackets()
 			options_list = [""]
 			last_index = 0
@@ -34,7 +34,7 @@ class Parameter: #anything with atleast one set of brackets
 				temp_list = []
 				for option in options_list:
 					substr = self.parameter[last_index:self.parameter.index(string, last_index)]
-					if "A.B.C.D" in substr:
+					if "A.B.C.D" in substr or "X:X::X:X" in substr:
 						new_option = IPvalue(substr).options
 					else:
 						new_option = [option.rstrip() + " " + substr.lstrip()]
@@ -53,7 +53,7 @@ class Parameter: #anything with atleast one set of brackets
 			temp_list = []
 			for option in options_list:
 				substr = self.parameter[last_index+1:]
-				if "A.B.C.D" in substr:
+				if "A.B.C.D" in substr or "X:X::X:X" in substr:
 					temp_options = IPvalue(substr).options
 					new_option = []
 					for temp in temp_options:
@@ -62,6 +62,9 @@ class Parameter: #anything with atleast one set of brackets
 					new_option = [option.rstrip() + " " + self.parameter[last_index+1:].rstrip()]
 				temp_list.extend(new_option)
 			options_list = temp_list
+		else:
+			if (self.parameter == 'A.B.C.D' or self.parameter == 'A.B.C.D/M' or self.parameter == "X:X::X:X"):
+				options_list = IPvalue(self.parameter).options
 
 		return options_list
 		
@@ -107,7 +110,7 @@ class Parameter: #anything with atleast one set of brackets
 		end = int(string[index+1:])
 		outputs.append(str(start))
 		outputs.append(str(random.randint(start, end)))
-		outputs.append(str(end - 10))
+		outputs.append(str(end - 1))
 		return outputs
 	
 	#extracts top level brackets and sets parameters
