@@ -43,6 +43,17 @@ def run_combi_test(commands):
 	return command_list
 
 
+def initialize_config_writer(index):
+	config_writer = open("config_writer_"+str(index), "w")
+	config_writer.write("#!/usr/bin/expect -f"+'\n')
+	config_writer.write("set timeout 1"+'\n')
+	config_writer.write("log_file tests.log"+'\n')
+	config_writer.write("spawn vtysh"+'\n')
+	config_writer.write(r'expect "*#"'+'\n')
+	config_writer.write(r'send -- "configure terminal\r"'+'\n')
+	config_writer.write(r'expect "*#"'+'\n')
+	return config_writer
+
 ###***###
 
 
@@ -55,35 +66,50 @@ for line in template_file:
 line_count = 0
 file_index = 0
 
-config_writer = open("config_writer", "w")
-config_writer.write("#!/usr/bin/expect -f"+'\n')
-config_writer.write("set timeout 1"+'\n')
-config_writer.write("log_file tests.log"+'\n')
-config_writer.write("spawn vtysh"+'\n')
-config_writer.write(r'expect "*#"'+'\n')
-config_writer.write(r'send -- "configure terminal\r"'+'\n')
-config_writer.write(r'expect "*#"'+'\n')
+config_writer = initialize_config_writer(0)
 
 print(str(len(commands_list)), str(len(set(commands_list))))
+commands_list = list(set(commands_list))
 #print(commands_list)
 
-for i in range(len(commands_list)-1):
+i = -1
 
-	for j in range(i+1, len(commands_list)):
-		
-		config_writer.write(r'send -- "'+commands_list[i].strip()+r'\r"'+'\n')
-		config_writer.write(r'expect "*#"'+'\n') 
-		config_writer.write(r'send -- "'+commands_list[j].strip()+r'\r"'+'\n')
-		config_writer.write(r'expect "*#"'+'\n')
-		config_writer.write(r'send -- "exit\r"'+'\n')
-		config_writer.write(r'expect "*#"'+'\n')
-		config_writer.write(r'send -- "show run\r"'+'\n')
-		config_writer.write(r'expect "*#"'+'\n')
-		
-		config_writer.write(r'send -- "configure terminal\r"'+'\n')
-		config_writer.write(r'expect "*#"'+'\n')
-		config_writer.write(r'send -- "no access-list WORD\r"'+'\n')
-		config_writer.write(r'expect "*#"'+'\n')
+for index in range(1, 20):
+
+	start_index = i+1
+	end_index = index*int(len(commands_list)/20)
+	
+	for i in range(start_index, end_index):
+
+		for j in range(i+1, len(commands_list)):
+			
+			config_writer.write(r'send -- "interface TESTWORD\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n') 
+			config_writer.write(r'send -- "'+commands_list[i].strip()+r'\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n') 
+			config_writer.write(r'send -- "'+commands_list[j].strip()+r'\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			config_writer.write(r'send -- "exit\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			config_writer.write(r'send -- "exit\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			config_writer.write(r'send -- "show run\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			
+			config_writer.write(r'send -- "configure terminal\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+			config_writer.write(r'send -- "no interface TESTWORD\r"'+'\n')
+			config_writer.write(r'expect "*#"'+'\n')
+	
+	config_writer.write(r'send -- "exit\r"'+'\n')
+	config_writer.write(r'expect "*#"'+'\n')
+	config_writer.write(r'send -- "exit\r"'+'\n')
+	config_writer.write(r'expect eof')
+
+	config_writer = initialize_config_writer(index)
+
+
+
 	
 	"""config_writer.write(r'send -- "no '+commands_list[i].strip()+r'\r"'+'\n')
 	config_writer.write(r'expect "*#"'+'\n')
@@ -105,12 +131,6 @@ for i in range(len(commands_list)-1):
 	config_writer.write(r'expect "*#"'+'\n')
 	config_writer.write(r'send -- "no '+commands_list[i].strip()+r'\r"'+'\n')
 	config_writer.write(r'expect "*#"'+'\n')"""
-
- 
-config_writer.write(r'send -- "exit\r"'+'\n')
-config_writer.write(r'expect "*#"'+'\n')
-config_writer.write(r'send -- "exit\r"'+'\n')
-config_writer.write(r'expect eof')
 
 
 
