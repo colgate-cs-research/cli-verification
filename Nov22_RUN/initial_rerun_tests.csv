@@ -1,0 +1,2027 @@
+ipv6 ospf6 authentication key-id 65534 hash-algo hmac-sha-256 key WORD,1,ip ospf transmit-delay 65534 ipv6 ospf6 authentication key-id 65534 hash-algo hmac-sha-256 k,"myfrr# show run
+configure terminal
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 65534
+ ipv6 ospf6 authentication key-id 65534 hash-algo hmac-sha-256 key WORD
+exit
+!
+router bgp 65000
+exit
+!
+end
+"
+ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1,1,ip ospf transmit-delay 65534 ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1,"myfrr# show run
+configure terminal
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1
+ ip ospf transmit-delay 65534
+exit
+!
+router bgp 65000
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 nd ra-retrans-interval 0,206,ipv6 nd ra-retrans-interval 0 ip ospf mpls ldp-sync,"myfrr(config)# exit
+configure terminal
+myfrr# show run
+no interface TESTWORD
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf mpls ldp-sync
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% Configuration failed.,4003,ip ospf passive 1.1.1.0 delay 13708818,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf passive 1.1.1.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+ISIS is not enabled on circuit TESTWORD,1644,openfabric topology standard ip ospf authentication message-digest 0.0.0.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf authentication message-digest 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+pim6d is not running,1335,ipv6 ospf6 priority 133 ipv6 pim hello 65534 21307,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 ospf6 priority 133
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% Invalid address,1000,ip address 0.0.0.0 peer 1.1.1.1/32 ipv6 nd ra-interval 528,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 nd ra-interval 528
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ospfd]: command ignored as it targets an instance that is not running,1227,ip ospf 43932 area 1.1.0.0 1.1.0.0 ip nhrp mtu 743,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip nhrp mtu 743
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+key WORD,968,ipv6 ospf6 authentication key-id 20686 hash-algo hmac-sha-512 k ip ospf bfd profile BFDPROF,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf bfd
+ ip ospf bfd profile BFDPROF
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% DF preference cannot be associated with this interface type,519,evpn mh es-df-pref 1 vrrp 1 preempt,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ vrrp 1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% Unknown command: evpn mh es-id 16777214 NAME,464,evpn mh es-id 16777214 NAME ip igmp join 1.1.1.1 0.0.0.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) babel channel interfering,17,ipv6 nd ra-interval msec 1799999 babel channel interfering,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 nd ra-interval msec 1799999
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% Failed to edit configuration.,475,ip address 1.1.1.0 peer 1.1.1.1/32 ip pim hello 65534 23333,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip address 1.1.1.0 peer 1.1.1.1/32
+ ip pim
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 1.1.1.0 preference 1410225887,17,ip ospf transmit-delay 6108 0.0.0.0 ip irdp address 1.1.1.0 preference 1410225887,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 6108 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+ip mroute INTERFACE 0.0.0.0 1.1.1.1,1,ip ospf transmit-delay 65534 ip mroute INTERFACE 0.0.0.0 1.1.1.1,"myfrr# show run
+configure terminal
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 65534
+exit
+!
+router bgp 65000
+exit
+!
+end
+"
+vrrp 209 shutdown,1,ip ospf transmit-delay 65534 vrrp 209 shutdown,"myfrr# show run
+configure terminal
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 65534
+ vrrp 209
+ vrrp 209 shutdown
+exit
+!
+router bgp 65000
+exit
+!
+end
+"
+(NO OUTPUT) ip pim bsm,17,vrrp 1 priority 253 ip pim bsm,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip pim
+ vrrp 1
+ vrrp 1 priority 253
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 1.1.0.0 preference 0,17,ip ospf cost 40042 1.1.0.0 ip irdp address 1.1.0.0 preference 0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 ospf6 transmit-delay 1,16,babel channel noninterfering ipv6 ospf6 transmit-delay 1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel channel noninterfering
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+ISIS is not enabled on this circuit,51,ip ospf dead-interval 65534 0.0.0.0 isis mpls ldp-sync holddown 0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp debug packet,17,ip ospf transmit-delay 65534 ip irdp debug packet,"myfrr# show run
+configure terminal
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 65534
+exit
+!
+router bgp 65000
+exit
+!
+end
+"
+% Unknown command: isis topologyipv4-unicast,17,babel hello-interval 655339 isis topologyipv4-unicast,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel hello-interval 655339
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 nd suppress-ra,16,ip ospf dead-interval 65534 0.0.0.0 ipv6 nd suppress-ra,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+openfabric passive,1,ip ospf transmit-delay 65534 openfabric passive,"myfrr# show run
+configure terminal
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 65534
+exit
+!
+router bgp 65000
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 0.0.0.0 preference 2147483646,17,ipv6 ospf6 priority 133 ip irdp address 0.0.0.0 preference 2147483646,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 ospf6 priority 133
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp multicast,17,ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1 ip irdp multicast,"no interface TESTWORD
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip pim drpriority 1,16,ip ospf transmit-delay 6108 0.0.0.0 ip pim drpriority 1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 6108 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip pim unicast-bsm,15,ip address 1.1.1.1 peer 1.1.0.0/23 ip pim unicast-bsm,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip address 1.1.1.1 peer 1.1.0.0/23
+ ip pim
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 1.1.1.0 preference 0,17,ip ospf dead-interval 65534 1.1.1.1 ip irdp address 1.1.1.0 preference 0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+Bad source address 0.0.0.0,68,babel hello-interval 655339 ip igmp join 1.1.0.0 0.0.0.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel hello-interval 655339
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf transmit-delay 1,15,ip ospf dead-interval 65534 1.1.1.0 ip ospf transmit-delay 1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 1.1.1.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+RD,17,babel channel noninterfering ipv6 ospf6 authentication key-id 1 hash-algo hmac-sha-1 key WOR,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel channel noninterfering
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 1 preempt,17,ipv6 nd ra-retrans-interval 0 vrrp 1 preempt,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ vrrp 1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+ipv6 nd adv-interval-option,1,ip ospf transmit-delay 65534 ipv6 nd adv-interval-option,"myfrr# show run
+configure terminal
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf transmit-delay 65534
+ ipv6 nd adv-interval-option
+exit
+!
+router bgp 65000
+exit
+!
+end
+"
+(NO OUTPUT) babel wireless,16,ip ospf dead-interval 65534 0.0.0.0 babel wireless,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp debug messages,17,ip ospf dead-interval 65534 1.1.1.1 ip irdp debug messages,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 1 advertisement-interval 40949,16,babel channel noninterfering vrrp 1 advertisement-interval 40949,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel channel noninterfering
+ vrrp 1
+ vrrp 1 advertisement-interval 40940
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp minadvertinterval 3,17,ip address 1.1.1.0 peer 1.1.1.1/32 ip irdp minadvertinterval 3,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip address 1.1.1.0 peer 1.1.1.1/32
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip rip split-horizon,17,ip ospf passive 1.1.1.0 ip rip split-horizon,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf passive 1.1.1.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 1.1.1.0 preference 2147483646,17,ipv6 nd ra-retrans-interval 0 ip irdp address 1.1.1.0 preference 2147483646,"no interface TESTWORD
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 254 preempt,16,ip ospf dead-interval 65534 0.0.0.0 vrrp 254 preempt,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+ vrrp 254
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 1.1.0.0 preference 2147483646,17,ip ospf dead-interval 65534 0.0.0.0 ip irdp address 1.1.0.0 preference 2147483646,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp preference 0,17,ipv6 ospf6 priority 133 ip irdp preference 0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 ospf6 priority 133
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp maxadvertinterval 4,17,ip address 1.1.1.1 peer 1.1.0.0/23 ip irdp maxadvertinterval 4,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip address 1.1.1.1 peer 1.1.0.0/23
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 254 advertisement-interval 40949,17,babel channel noninterfering vrrp 254 advertisement-interval 40949,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel channel noninterfering
+ vrrp 254
+ vrrp 254 advertisement-interval 40940
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp minadvertinterval 1799,17,ip ospf passive 1.1.1.0 ip irdp minadvertinterval 1799,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf passive 1.1.1.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) link-detect,16,ipv6 ospf6 priority 133 link-detect,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 ospf6 priority 133
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 153 advertisement-interval 40949,17,ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1 vrrp 153 advertisement-interval 40949,"no interface TESTWORD
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1
+ vrrp 153
+ vrrp 153 advertisement-interval 40940
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% ESI cannot be associated with this interface type,17,ip ospf cost 40042 1.1.0.0 evpn mh es-id,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf network broadcast,17,ip ospf dead-interval 65534 0.0.0.0 ip ospf network broadcast,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% Unknown command: isis topologyipv6-unicast,17,vrrp 1 priority 253 isis topologyipv6-unicast,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ vrrp 1
+ vrrp 1 priority 253
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+WORD,34,babel channel noninterfering ipv6 ospf6 authentication key-id 1 hash-algo hmac-sha-512 key W,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel channel noninterfering
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 254 version 3,17,ipv6 ospf6 priority 133 vrrp 254 version 3,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 ospf6 priority 133
+ vrrp 254
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+This ra-lifetime would conflict with configured ra-interval,17,ipv6 ospf6 priority 133 ipv6 nd ra-lifetime 426,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 ospf6 priority 133
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% Unknown command: evpn mh es-id 1 NAME,17,babel hello-interval 655339 evpn mh es-id 1 NAME,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel hello-interval 655339
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 ripng split-horizon,16,ip ospf dead-interval 65534 0.0.0.0 ipv6 ripng split-horizon,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 nd ra-fast-retrans,17,ip ospf passive 1.1.1.0 ipv6 nd ra-fast-retrans,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf passive 1.1.1.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp minadvertinterval 612,17,vrrp 1 priority 253 ip irdp minadvertinterval 612,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ vrrp 1
+ vrrp 1 priority 253
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp broadcast,17,ip address 1.1.1.1 peer 1.1.0.0/23 ip irdp broadcast,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip address 1.1.1.1 peer 1.1.0.0/23
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 1.1.1.1 preference 2147483646,17,ip ospf dead-interval 65534 0.0.0.0 ip irdp address 1.1.1.1 preference 2147483646,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% Unknown command: isis topologystandard,17,ip ospf cost 40042 1.1.1.1 isis topologystandard,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp holdtime 0,17,ip ospf cost 40042 1.1.0.0 ip irdp holdtime 0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp debug disable,17,vrrp 1 priority 253 ip irdp debug disable,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ vrrp 1
+ vrrp 1 priority 253
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 nd router-preference medium,16,ip ospf cost 40042 1.1.1.1 ipv6 nd router-preference medium,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf transmit-delay 1 0.0.0.0,17,ip ospf dead-interval 65534 1.1.1.1 ip ospf transmit-delay 1 0.0.0.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp holdtime 2409,17,ip ospf dead-interval 65534 0.0.0.0 ip irdp holdtime 2409,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 0.0.0.0 preference 1410225887,17,ip ospf cost 40042 1.1.0.0 ip irdp address 0.0.0.0 preference 1410225887,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf transmit-delay 1 1.1.0.0,16,ip ospf passive 1.1.1.0 ip ospf transmit-delay 1 1.1.0.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf passive 1.1.1.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+% [ZEBRA] Unknown command: ip irdp address 1.1.1.1 preference 0,17,ip ospf cost 40042 1.1.1.1 ip irdp address 1.1.1.1 preference 0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 nd home-agent-preference 0,17,ip ospf dead-interval 65534 0.0.0.0 ipv6 nd home-agent-preference 0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 242 version 3,17,ip ospf dead-interval 65534 1.1.1.1 vrrp 242 version 3,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 65534 1.1.1.1
+ vrrp 242
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+"Couldn't bring up interface, please check log.",17,ip ospf cost 40042 1.1.0.0 ip router openfabric WORD,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 40042 1.1.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 1 version 3,16,ipv6 nd ra-retrans-interval 0 vrrp 1 version 3,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ vrrp 1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+configure terminal,156,ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1 ip ospf dead-interval 61293 1.1.1.1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 61293 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+no interface TESTWORD,2,ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1 ip ospf  area 1.1.1.0 1.1.1.0,"interface TESTWORD
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf area 1.1.1.0 1.1.1.0
+ ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1,1,ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1 ip ospf dead-interval minimal hello-multiplier 1 1.1.1.1,"myfrr(config)# exit
+configure terminal
+myfrr# show run
+Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval minimal hello-multiplier 1 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+exit,1,ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1 ipv6 ripng split-horizon,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval minimal hello-multiplier 9 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+ipv6 nd mtu 65534,1,isis priority 0 level-1 ipv6 nd mtu 65534,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 nd mtu 65534
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ipv6 nd ra-interval msec 1799999,3,ipv6 nd ra-interval msec 1799999 ipv6 nd ra-interval 1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ipv6 nd ra-interval 1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) vrrp 1 priority 253,1,vrrp 1 priority 253 vrrp 1 priority 1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ vrrp 1
+ vrrp 1 priority 1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf dead-interval 65534 1.1.1.0,3,ip ospf dead-interval 65534 1.1.1.0 ip ospf dead-interval minimal hello-multiplier 1 1.1.1.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval minimal hello-multiplier 1 1.1.1.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) babel hello-interval 655339,1,babel hello-interval 655339 babel hello-interval 20,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel hello-interval 20
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf dead-interval 65534 1.1.1.1,3,ip ospf dead-interval 65534 1.1.1.1 ip ospf dead-interval 61293 1.1.1.1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval 61293 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf cost 40042 1.1.0.0,2,ip ospf cost 40042 1.1.0.0 ip ospf cost 65534 1.1.0.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 65534 1.1.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf cost 40042 1.1.1.1,1,ip ospf cost 40042 1.1.1.1 ip ospf cost 65534 1.1.1.1,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf cost 65534 1.1.1.1
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) babel channel noninterfering,2,babel channel noninterfering babel channel 253,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ babel channel 253
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"
+(NO OUTPUT) ip ospf dead-interval 65534 0.0.0.0,4,ip ospf dead-interval 65534 0.0.0.0 ip ospf dead-interval minimal hello-multiplier 2 0.0.0.0,"Building configuration...
+
+Current configuration:
+!
+frr version 8.3.1_git
+frr defaults traditional
+hostname b8599e54d3b3
+no ipv6 forwarding
+hostname myfrr
+log file /tmp/bgp.log
+!
+interface TESTWORD
+ ip ospf dead-interval minimal hello-multiplier 2 0.0.0.0
+exit
+!
+router bgp 65000
+exit
+!
+router openfabric WORD
+exit
+!
+end
+"

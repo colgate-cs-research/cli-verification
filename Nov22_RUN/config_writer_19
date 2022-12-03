@@ -1,0 +1,7 @@
+#!/usr/bin/expect -f
+set timeout 1
+log_file tests.log
+spawn vtysh
+expect "*#"
+send -- "configure terminal\r"
+expect "*#"
